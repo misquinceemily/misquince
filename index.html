@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis Quince</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        margin-top: 10px;
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 41%, rgba(255,255,255,1) 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <img
+              src="Copia de Quinceaera Invitation - Hecho con PosterMyWall.jpg"
+              style="max-width: 100%"
+              alt="Invitation"
+            />
+          </div>
+          <div class="col">
+            <div class="row">
+              <div
+                class="card"
+                style="
+                  width: 22rem;
+                  margin: auto;
+                  margin-top: 20px;
+                  margin-bottom: 20px;
+                  align-items: center;
+                  border-radius: 20px;
+                  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+                  background-color: #F3F3F3;
+                "
+              >
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #000;">Confirma tu asistencia!</h5>
+                  <button id="btnConfirm" class="btn w-100" style="background-color: #7869E7; color: #fff;border-radius: 20px;" data-bs-toggle="modal" data-bs-target="#modalUsu">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-check-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      />
+                      <path
+                        d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
+                      />
+                    </svg>
+                    Confirmar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row" >
+              <h4 style="color: #000; margin-top: 10px;">Ubicación del evento</h4>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1032.980333138737!2d-72.61315113881572!3d7.91088159912783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e664fdb4b0d0e87%3A0xd9d45024c8a6c22c!2sRancho%20para%C3%ADso!5e1!3m2!1ses!2sco!4v1650722529114!5m2!1ses!2sco"
+                width="100%"
+                height="500"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="modal" tabindex="-1" id="modalUsu">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Registro De Invitados</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="bodyCard">
+            <p>Para registrar mas de un invitado, digite la cantidad en el siguiente cuadro</p>
+            <div class="row">
+              <div class="col-9 col-md-10 p-2 h-60">
+                <form class="form-floating w-auto">
+                  <input type="number" class="form-control" id="cntPersonas" style="height: 3em;">
+                  <label for="cntPersonas">Número de Invitados</label>
+                </form>
+              </div>
+              <div class="col-3 col-md-2 align-self-center align-items-start h-auto w-auto">
+                <button type="button" id="cntPerson" style="background-color: #7869E7; color: #fff;" class="btn   btn-sm w-auto"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                </svg></button>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <p>Invitado 1</p>
+              <div class="col">
+                <form class="form-floating">
+                <input type="text" class="form-control inputNombres" id="floatingInputValue" style="height: 3em;" required >
+                <label for="floatingInputValue">Nombres</label>
+              </form>
+              </div>
+              <div class="col">
+                <form class="form-floating">
+                  <input type="number" class="form-control inputCelu" id="floatingInputValue" style="height: 3em;" required >
+                  <label for="floatingInputValue">N° celular</label>
+                </form>
+              </div>
+              
+            </div>
+
+            <template id="camposAdd">
+              <div class="row mt-2">
+                <p class="idInvitado">0</p>
+                <div class="col">
+                  <form class="form-floating">
+                  <input type="text" class="form-control inputNombres" style="height: 3em;" required aria-required="Digite por favor">
+                  <label for="floatingInputValue">Nombres</label>
+                </form>
+                </div>
+                <div class="col">
+                  <form class="form-floating">
+                    <input type="number" class="form-control inputCelu" style="height: 3em;" required aria-required="Digite por favor">
+                    <label for="floatingInputValue">N° celular</label>
+                  </form>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger" style="background-color: #fc1653;"
+              data-bs-dismiss="modal"
+              id="btnCancela"
+            >
+              Cancelar
+            </button>
+            <button type="button" id="btnsubmit"  style="background-color: #7869E7; color: #fff;" disabled="true" class="btn">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+
+      
+      /*var btn = document
+        .getElementById("btnConfirm")
+        .addEventListener("click", () => {
+            swal(
+              "Digite cantidad de personas a registrar",
+              {
+              content: {
+                element: "input",
+                attributes: {
+                  type: "text",
+                }},
+            }).then((text) =>
+            {
+              if(!text) swal("Error", "No has enviado nada", "warning");
+              else{
+                Email.send({
+                    Host: "smtp.gmail.com",
+                    Username: 'lubrillantasjezreel@gmail.com',
+                    Password: "rvuxyiyppggwcrvx",
+                    To: "johnnyaquintero@gmail.com",
+                    From: 'lubrillantasjezreel@gmail.com',
+                    Subject: "Invitados",
+                    Body: text,
+                
+                }).then(()=>{
+                   swal("Registro Exitoso", "Te espero, no faltes!", "success");
+                })
+              }
+            });
+          });*/
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
