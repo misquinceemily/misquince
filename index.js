@@ -9,34 +9,50 @@ inputInvitao.addEventListener("change", () => {
     document.getElementById("btnsubmit").disabled = false;
   }
 });
-
+let cntCuadros = 1;
 btnRegis.addEventListener("click", () => {
   let data = parseInt(document.getElementById("cntPersonas").value);
-
-  let padre = document.getElementById("bodyCard");
-  let modalUsu = document.getElementById("camposAdd");
-  let fragment = document.createDocumentFragment();
-
-  let i = 0,
-    num = 0,
-    aux = 1;
-
-  if (!!document.querySelector(".idInvitado")) {
-
-    var valor =
-      document.querySelectorAll(".idInvitado")[
-        document.querySelectorAll(".idInvitado").length - 1
-      ].innerHTML;
-    num = parseInt(valor.split(" ")[1]);
-    i = num;
-    aux = num;
+  if(cntCuadros >= 5){
+    swal("Ups!", "No puedes agregar mas invitados", "error");
+    document.getElementById("cntPersonas").innerHTML = "";
+    document.getElementById("cntPersonas").value = "";
+  }else{
+    if(data == 1 || data == 0 || data < 0 || document.getElementById("cntPersonas").value == ''){
+      swal("Aviso", "Agrega mas invitados", "warning");
+    }else{
+      if(data <= 5){
+        cntCuadros+=data;
+        let padre = document.getElementById("bodyCard");
+        let modalUsu = document.getElementById("camposAdd");
+        let fragment = document.createDocumentFragment();
+      
+        let i = 1,
+          num = 0,
+          aux = 1;
+      
+        if (!!document.querySelector(".idInvitado")) {
+      
+          var valor =
+            document.querySelectorAll(".idInvitado")[
+              document.querySelectorAll(".idInvitado").length - 1
+            ].innerHTML;
+          num = parseInt(valor.split(" ")[1]);
+          i = num;
+          aux = num;
+        }
+        for (i; i < (num + data); i++) {
+          let clone = modalUsu.content.cloneNode(true);
+          clone.querySelector(".idInvitado").innerHTML = "Invitado " + ++aux;
+          fragment.appendChild(clone);
+        }
+        padre.appendChild(fragment);
+      }else{
+        swal("Ups!", "Has pasado la maxima cantidad de invitados", "error");
+        document.getElementById("cntPersonas").innerHTML = "";
+        document.getElementById("cntPersonas").value = "";
+      }
+    }
   }
-  for (i; i < num + data; i++) {
-    let clone = modalUsu.content.cloneNode(true);
-    clone.querySelector(".idInvitado").innerHTML = "Invitado " + ++aux;
-    fragment.appendChild(clone);
-  }
-  padre.appendChild(fragment);
 });
 
 btnSubmi = document.getElementById("btnsubmit");
@@ -55,7 +71,7 @@ btnSubmi.addEventListener("click", () => {
       Host: "smtp.gmail.com",
       Username: "lubrillantasjezreel@gmail.com",
       Password: "rvuxyiyppggwcrvx",
-      To: "johnnyaquintero@gmail.com",
+      To: "emilynarvaezquintero@gmail.com",
       From: "lubrillantasjezreel@gmail.com",
       Subject: "Invitados",
       Body: personas,
