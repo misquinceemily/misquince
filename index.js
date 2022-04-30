@@ -97,3 +97,6 @@ btnSubmi.addEventListener("click", () => {
 document.getElementById("btnCancela").addEventListener('click',()=>{
   location.reload();
 })
+document.getElementById("btnEquis").addEventListener('click',()=>{
+  location.reload();
+})
