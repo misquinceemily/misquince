@@ -9,7 +9,7 @@ inputInvitao.addEventListener("change", () => {
     document.getElementById("btnsubmit").disabled = false;
   }
 });
-let cntCuadros = 1;
+let cntCuadros = 0;
 btnRegis.addEventListener("click", () => {
   let data = parseInt(document.getElementById("cntPersonas").value);
   if(cntCuadros >= 5){
@@ -17,11 +17,11 @@ btnRegis.addEventListener("click", () => {
     document.getElementById("cntPersonas").innerHTML = "";
     document.getElementById("cntPersonas").value = "";
   }else{
-    if(data == 1 || data == 0 || data < 0 || document.getElementById("cntPersonas").value == ''){
+    if(data == 0 || data < 0 || document.getElementById("cntPersonas").value == ''){
       swal("Aviso", "Agrega mas invitados", "warning");
     }else{
       if(data <= 5){
-        cntCuadros+=data;
+        
         let padre = document.getElementById("bodyCard");
         let modalUsu = document.getElementById("camposAdd");
         let fragment = document.createDocumentFragment();
@@ -40,12 +40,22 @@ btnRegis.addEventListener("click", () => {
           i = num;
           aux = num;
         }
-        for (i; i < (num + data); i++) {
-          let clone = modalUsu.content.cloneNode(true);
-          clone.querySelector(".idInvitado").innerHTML = "Invitado " + ++aux;
-          fragment.appendChild(clone);
+        if((num+data)>5){
+          swal("Ups!","Te estas pasando de la cantidad maxima de invitados", "error");
+        }else{
+          let n = num+data;
+          if(data == 1){
+            if(cntCuadros == 1) n++;
+          }
+          for (i; i < n; i++) {
+            let clone = modalUsu.content.cloneNode(true);
+            clone.querySelector(".idInvitado").innerHTML = "Invitado " + ++aux;
+            fragment.appendChild(clone);
+          }
+          cntCuadros+=data;
+          padre.appendChild(fragment);
         }
-        padre.appendChild(fragment);
+        
       }else{
         swal("Ups!", "Has pasado la maxima cantidad de invitados", "error");
         document.getElementById("cntPersonas").innerHTML = "";
